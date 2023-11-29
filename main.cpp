@@ -81,7 +81,7 @@ Graph leitura(int selecionar){
 
     int auxI, auxJ, auxP, auxC;
     vector<Edge> auxArestas;
-    auxArestas.resize(nArestas);
+    
 
     for(int j = 1; j <= nArestas; j++){
     
@@ -91,12 +91,14 @@ Graph leitura(int selecionar){
     leitor >> auxP;
     leitor >> auxC;
     Edge *e = new Edge(j, auxI, auxJ, auxP, auxC);
-    auxArestas.push_back(*e);
+    
+   auxArestas.emplace_back(*e);
+   
     delete e;
     
     }
     vector<Node> auxVertices;
-    auxVertices.resize(nVertices);
+    
     
     for(int k = 1; k <=nVertices; k++){
     
@@ -117,17 +119,19 @@ Graph leitura(int selecionar){
      int t;   
      leitor >> auxiliar;
      leitor >> t;
-     auxVertices.at(t).setTerminal(true);
+     auxVertices.at(t- 1).setTerminal(true);
 
 
 
     }
     
     for(auto e : auxArestas){
-        int i = e.i;
-        int j = e.j;
-        auxVertices.at(i-1).addVizinhos(j-1);
-        auxVertices.at(j-1).addVizinhos(i-1);
+        int i = e.i -1;
+        int j = e.j -1;
+       
+        auxVertices.at(i).addVizinhos(j);
+        auxVertices.at(j).addVizinhos(i);
+    
     }
     
 
@@ -140,7 +144,7 @@ Graph leitura(int selecionar){
 int main(){
 
    
-    Graph *g = new Graph; *g = leitura(5); // chama a função para a instância x
+    Graph *g = new Graph; *g = leitura(2); // chama a função para a instância x
     g->imprimeArestas();
    
     cout<<endl;
