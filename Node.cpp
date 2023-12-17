@@ -4,13 +4,14 @@ Node::Node(){
     
     id = 0;
     terminal = false;
+    naSolucao = false;
 }
 
 Node::Node( int nodeId ){
     
     id = nodeId;
     terminal = false;
-    
+    naSolucao = false;
     
 }
 
@@ -55,6 +56,20 @@ bool Node::getTerminal(){
 
 
 return terminal;
+
+
+}
+
+
+void Node::setNaSolucao(bool s){
+     naSolucao = s;
+}
+
+
+bool Node::getNaSolucao(){
+
+
+return naSolucao;
 
 
 }

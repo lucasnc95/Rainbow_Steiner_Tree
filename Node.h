@@ -13,7 +13,7 @@ class Node {
         vector<int> vizinhos;        
         bool terminal;
        // bool visitado;
-        //bool naSolucao;
+        bool naSolucao;
          
     public:
         
@@ -26,7 +26,8 @@ class Node {
         void setVizinhos(vector<int> nodesId);
         void addVizinhos(int id);
         void setTerminal(bool t);
-        
+        void setNaSolucao(bool s);
+        bool getNaSolucao();
         
       
         

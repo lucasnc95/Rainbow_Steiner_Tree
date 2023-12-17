@@ -137,20 +137,50 @@ Graph leitura(int selecionar){
 
     g->addArestas(auxArestas);
     g->addNos(auxVertices);
+    g->setTerminais(nTerminais);
     cout<<"Grafo criado"<<endl;
     return *g;
 }
 
+
+
+
+
+
+
+
+
+
+
 int main(){
 
-   
-    Graph *g = new Graph; *g = leitura(2); // chama a função para a instância x
-    g->imprimeArestas();
-   
+   auto startTime = std::chrono::high_resolution_clock::now();
+    Graph *g = new Graph; *g = leitura(0); // chama a função para a instância x
+     // g->imprimeArestas();
+     // g->criarArquivoDot("grafo.dot");
+  
+    
+    g->solucao(0.2);
     cout<<endl;
+   
+    
+     auto endTime = std::chrono::high_resolution_clock::now();
+
+    // Calcula a diferença de tempo
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
+
+    // Imprime o tempo de execução
+    std::cout << "Tempo de execucao: " << duration.count() << " segundos" << std::endl;
+  
+
+
      delete g;
 }
 
 
 
 
+
+
+    
+   

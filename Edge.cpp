@@ -10,7 +10,7 @@ cor = 0;
 peso = 0;
 i = 0;
 j = 0;
-pontos = 0;
+
 
 }
 
@@ -23,7 +23,7 @@ cor = corA;
 peso = pesoA;
 i = iA;
 j = jA;
-pontos =  0;
+
 
 }
 
